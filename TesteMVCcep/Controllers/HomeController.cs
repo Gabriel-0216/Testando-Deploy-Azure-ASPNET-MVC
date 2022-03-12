@@ -38,12 +38,11 @@ namespace TesteMVCcep.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Endereco(Endereco model)
         {
-            if (ModelState.IsValid)
-            {
-                _logger.LogInformation(model.ToString());
-            }
+
+            _logger.LogInformation(model.ToString());
             return RedirectToAction("Index");
         }
 
